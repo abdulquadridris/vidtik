@@ -9,13 +9,13 @@ import GoogleLogin from 'react-google-login';
 import SuggestedAccounts from './SuggestedAccounts';
 import Discover from './Discover';
 import Footer from './Footer';
-// import useAuthStore from '../store/authStore';
+import useAuthStore from '../store/authStore';
 
 const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
   const { pathname } = useRouter();
   const userProfile = false;
-  // const { fetchAllUsers, allUsers }: any = useAuthStore();
+  const { fetchAllUsers, allUsers }: any = useAuthStore();
 
   const activeLink = 'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded';
 
@@ -45,7 +45,8 @@ const Sidebar: NextPage = () => {
           </div>
           <Discover />
           <SuggestedAccounts
-    
+            fetchAllUsers={fetchAllUsers}
+            allUsers={allUsers}
           />
           <Footer />
         </div>

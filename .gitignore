@@ -17,8 +17,12 @@ node_modules
 /build
 
 # misc
+# misc
 .DS_Store
 *.pem
+.env
+.env.production
+.env.development
 
 # debug
 npm-debug.log*
